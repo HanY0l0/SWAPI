@@ -58,47 +58,47 @@ const populateRows = function (planetData) {
   });
 };
 
-function showModal(row) {
+function showModal(row, planetName) {
   const residents = residentsURL[row];
-  const modal = document.getElementById("residentsModal");
-  const modalLabel = document.getElementById("residentsLabel");
-  const tableBody = document.getElementById("residents_tbody");
+  const modalBody = document.getElementById("modalBody");
 
-  tableBody.innerHTML = "";
+  document.querySelector(
+    "#residentsModal h1"
+  ).textContent = `Residents of ${planetName}`;
+
+  modalBody.innerHTML = "";
 
   Promise.all(
-    residents.map((url) =>
-      fetch(url)
-        .then((response) => response.json())
-        .catch((error) => console.error("Failed to fetch resident:", error))
-    )
+    residents.map((url) => fetch(url).then((response) => response.json()))
   )
     .then((residentsDetails) => {
       residentsDetails.forEach((resident) => {
-        const row = tableBody.insertRow();
-        const cellData = [
-          resident.name,
-          resident.height,
-          resident.mass,
-          resident.hair_color,
-          resident.skin_color,
-          resident.eye_color,
-          resident.birth_year,
-          resident.gender,
-        ];
-
-        cellData.forEach((data) => {
-          const cell = row.insertCell();
-          cell.textContent = data;
-        });
+        let row = document.createElement("tr");
+        let tableRow = `
+          <td>${resident.name}</td>
+          <td>${resident.height}</td>
+          <td>${resident.mass}</td>
+          <td>${resident.hair_color}</td>
+          <td>${resident.skin_color}</td>
+          <td>${resident.eye_color}</td>
+          <td>${resident.birth_year}</td>
+          <td>${resident.gender}</td>
+          `;
+        row.innerHTML = tableRow;
+        modalBody.appendChild(row);
       });
-
-      modal.classList.remove("hidden");
+      document.getElementById("residentsModal").classList.remove("hidden");
+      document.getElementById("overlay").classList.remove("hidden");
     })
     .catch((error) => {
-      console.error("Failed to fetch residents:", error);
+      console.error("Error fetching resident details:", error);
     });
 }
+
+document.querySelector(".close-modal").addEventListener("click", () => {
+  document.getElementById("residentsModal").classList.add("hidden");
+  document.getElementById("overlay").classList.add("hidden");
+});
 
 document.querySelectorAll(".close-modal-button").forEach((button) => {
   button.addEventListener("click", () => {
