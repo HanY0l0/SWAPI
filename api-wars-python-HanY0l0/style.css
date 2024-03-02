@@ -1,0 +1,117 @@
+body {
+  background-color: rgb(123, 23, 218);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: whitesmoke;
+}
+
+h1 {
+  color: white;
+  font-family: monospace;
+  text-align: center; /* Center the heading */
+}
+
+table {
+  width: 80%; /* Adjust the width to not span the entire width of the page */
+  border-collapse: collapse;
+  margin: 20px auto; /* Center the table on the page */
+  background-color: #6a0dad; /* A lighter shade of the body background for contrast */
+  border-radius: 8px; /* Soften the table corners */
+  overflow: hidden; /* Ensures the border-radius clips content */
+}
+
+th,
+td {
+  padding: 12px; /* Increase padding for better spacing */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #7b1fa2; /* Darker shade for headers */
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #9c27b0; /* Ensure even rows stand out */
+}
+
+tr:hover {
+  background-color: rgb(70, 73, 233); /* Lighter purple for hover effect */
+  color: #000; /* Change text color on hover for better readability */
+}
+
+#container {
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Slightly transparent to blend with the body background */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 90%; /* Adjusted for better screen fit */
+  margin: 20px auto; /* Centered with top margin for spacing */
+  border-radius: 8px; /* Consistency with table's rounded corners */
+  overflow-x: auto; /* Keep for responsiveness */
+}
+
+.btn {
+  background-color: #7b1fa2; /* Purple background to match the theme */
+  color: whitesmoke; /* Light text for contrast */
+  border: 2px solid #fff; /* White border to make the button stand out */
+  padding: 10px 20px; /* Spacing inside the button */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif; /* Consistent font */
+  font-size: 16px; /* Readable text size */
+  cursor: pointer; /* Cursor indicates the button is clickable */
+  border-radius: 5px; /* Slightly rounded corners for a modern look */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.btn:hover {
+  background-color: #9c27b0; /* Lighter purple on hover for interactivity */
+  color: #000; /* Dark text on hover for readability */
+}
+
+.btn:disabled {
+  background-color: #5e3561; /* Darker and muted for disabled state */
+  border: 2px solid #7b1fa2; /* Border color similar to the normal state but blended with disabled background */
+  color: #a9a9a9; /* Greyed out text for disabled state */
+  cursor: not-allowed; /* Indicates the button is not clickable */
+}
+
+.btn-outline-primary {
+  background-color: transparent; /* Override if you prefer outline buttons */
+  color: #fff; /* White text for contrast */
+  border: 2px solid #fff; /* White border for consistency */
+}
+
+.btn-outline-primary:hover {
+  background-color: #fff; /* White background on hover */
+  color: #7b1fa2; /* Theme color text for a pop of color on hover */
+}
+
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  background: white;
+  border-radius: 5px;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
